@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+
+    <TextView
+        android:id="@+id/tvYAxisLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="5dp"
+        android:text="Y"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/lcChart"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvXAxisLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="X"
+        android:textColor="@color/black"
+        android:layout_marginBottom="15dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/chipGroup"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/lcChart"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/chipGroup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/cShowExact"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/exact"
+            android:textSize="12sp"
+            android:checked="true"/>
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/cShowEuler"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/euler"
+            android:textSize="12sp"
+            android:checked="true" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/cShowImpEuler"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/improved_euler"
+            android:textSize="12sp"
+            android:checked="true" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/cShowRungeKutta"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/runge_kutta"
+            android:textSize="12sp"
+            android:checked="true" />
+
+    </com.google.android.material.chip.ChipGroup>
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:text="@string/initial_conditions"
+        android:textColor="@color/design_default_color_primary"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/tilInitialXLayout"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilInitialXLayout"
+        android:layout_marginTop="5dp"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/tilInitialYLayout"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etInitialX"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/InitialX"
+            android:inputType="numberSigned|numberDecimal"
+            android:text="@string/initialX0"
+            tools:layout_editor_absoluteX="103dp"
+            tools:layout_editor_absoluteY="291dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilInitialYLayout"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/tilXBorderLayout"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tilInitialXLayout"
+        app:layout_constraintTop_toTopOf="@+id/tilInitialXLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etInitialY"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/InitialY"
+            android:inputType="numberSigned|numberDecimal"
+            android:text="@string/initialY0"
+            tools:layout_editor_absoluteX="103dp"
+            tools:layout_editor_absoluteY="291dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilXBorderLayout"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tilInitialYLayout"
+        app:layout_constraintTop_toTopOf="@+id/tilInitialYLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etXBorder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/FinalX"
+            android:inputType="numberSigned|numberDecimal"
+            android:text="@string/FinalXValue"
+            tools:layout_editor_absoluteX="103dp"
+            tools:layout_editor_absoluteY="291dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilInitialStepLayout"
+        android:layout_marginTop="5dp"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/tilFinalStepLayout"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilInitialXLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etInitialStep"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/InitialStep"
+            android:digits="0123456789"
+            android:inputType="numberDecimal"
+            android:text="@string/InitialStepValue"
+            tools:layout_editor_absoluteX="103dp"
+            tools:layout_editor_absoluteY="291dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilFinalStepLayout"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tilInitialStepLayout"
+        app:layout_constraintTop_toTopOf="@+id/tilInitialStepLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etFinalStep"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/n"
+            android:digits="0123456789"
+            android:inputType="numberDecimal"
+            android:text="@string/_30"
+            tools:layout_editor_absoluteX="103dp"
+            tools:layout_editor_absoluteY="291dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/btgButtonGroup"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        app:checkedButton="@+id/btnShowSolution"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:singleSelection="true">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnShowSolution"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:insetBottom="0dp"
+            app:cornerRadius="0dp"
+            android:text="@string/solution"
+            android:textSize="12sp"
+            app:icon="@drawable/ic_solution_icon"
+            app:iconGravity="top" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnShowLocalError"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:insetBottom="0dp"
+            app:cornerRadius="0dp"
+            android:text="@string/local_error"
+            android:textSize="12sp"
+            app:icon="@drawable/ic_errorx_icon"
+            app:iconGravity="top" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnShowGlobalError"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:insetBottom="0dp"
+            app:cornerRadius="0dp"
+            android:text="@string/global_error"
+            android:textSize="12sp"
+            app:icon="@drawable/ic_errorn_icon"
+            app:iconGravity="top" />
+
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

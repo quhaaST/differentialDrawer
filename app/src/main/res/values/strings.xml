@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">DifferentialDrawer</string>
+    <string name="total_error">Total error</string>
+    <string name="initialX0">1</string>
+    <string name="InitialX">X0</string>
+    <string name="initialY0">2</string>
+    <string name="InitialY">Y0</string>
+    <string name="FinalX">X</string>
+    <string name="FinalXValue">6</string>
+    <string name="InitialStep">n0</string>
+    <string name="InitialStepValue">20</string>
+    <string name="initial_conditions">Initial conditions:</string>
+    <string name="runge_kutta">Runge-Kutta</string>
+    <string name="improved_euler">Improved Euler</string>
+    <string name="euler">Euler</string>
+    <string name="exact">Exact</string>
+    <string name="global_error">Global error</string>
+    <string name="local_error">Local error</string>
+    <string name="solution">Solution</string>
+    <string name="n">N</string>
+    <string name="_30">30</string>
+</resources>
