@@ -28,7 +28,7 @@ class ExactSolution : MethodSolutionBase() {
     override fun calculateSolutions() {
         var currentX = initialX
         solutions.clear()
-        while (currentX <= finalX) {
+        for (i in 0 until initialStepNumber) {
             val result = getSolution(currentX)
             solutions.add(Pair(currentX, result))
 
